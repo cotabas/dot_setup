@@ -1,0 +1,103 @@
+* {
+    font-family: Inconsolata Nerd Font Mono, Inconsolata;
+    font-size: 18px;
+    min-height: 0;
+}
+span {
+  color: #FCBF4A;
+}
+
+window#waybar {
+    background: RGBA(29, 32, 33, 1);
+    color: RGBA(235, 219, 178, 1);
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: RGBA(235, 219, 178, 1);
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: white;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.active {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+#custom-right-arrow-gray,
+#custom-left-arrow-gray {
+  color: #504B47;
+}
+#custom-right-arrow-tan,
+#custom-left-arrow-tan {
+  color: #D3C5A1;
+}
+#custom-right-arrow-orange,
+#custom-left-arrow-orange {
+  color: #FCBF4A;
+}
+#custom-butt-arrow-orange {
+  background: #FCBF4A;
+  color: RGBA(29, 32, 33, 1);
+}
+#custom-butt-arrow-gray {
+  background: #504B47;
+  color: RGBA(29, 32, 33, 1);
+}
+#custom-pwr {
+  background: #FCBF4A;
+  color: RGBA(29, 32, 33, 1);
+  padding-left: 8px;
+}
+
+#mode, #clock, #bluetooth {
+    padding: 0 10px;
+}
+#bluetooth {
+  background: #D3C5A1;
+  color: RGBA(29, 32, 33, 1);
+}
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#network {
+  background: #504B47;
+  font-family: Inconsolata;
+  padding: 0 15px;
+}
+#battery, #clock.1 {
+  font-family: Inconsolata;
+  background: #504B47;
+  padding-left: 8px;
+  padding-right: 15px;
+}
+
+#battery.charging {
+    color: RGBA(235, 219, 178, 1);
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: white;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

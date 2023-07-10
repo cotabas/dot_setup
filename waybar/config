@@ -1,0 +1,110 @@
+{
+    "layer": "top",
+    "margin-left": 2,
+    "margin-right": 2,
+    "margin-top": 2,
+    "modules-left": ["bluetooth", "custom/right-arrow-tan"],
+    "modules-center": ["custom/butt-arrow-gray", "clock#1", "custom/right-arrow-gray", "clock#2", "custom/butt-arrow-gray", "battery", "custom/right-arrow-gray", "custom/butt-arrow-orange", "custom/pwr", "custom/right-arrow-orange"],
+    "modules-right": ["custom/left-arrow-gray", "network"],
+    "sway/window": {
+        "max-length": 50
+    },
+    "battery": {
+        "interval": 60,
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "custom/pwr": {
+      "interval": 1,
+      "tooltip": false,
+      "exec": "$HOME/.config/waybar/pwr.sh",
+    },
+    "clock#1": {
+      "interval": 1,
+      "format": "{:%r}"
+    },
+    "clock#2": {
+        "format": "{:%B %d}",
+        "tooltip-format": "\n<span size='9pt'>{calendar}</span>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+        }
+    },
+    "custom/left-arrow-gray": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/left-arrow-orange": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/butt-arrow-gray": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/butt-arrow-tan": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/right-arrow-tan": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/butt-arrow-orange": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/right-arrow-gray": {
+      "format": "",
+      "tooltip": false
+    },
+    "custom/right-arrow-orange": {
+      "format": "",
+      "tooltip": false
+    },
+    "bluetooth": {
+      "format": "", // " {status}",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": "  {device_alias}",
+      "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+      "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+      "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+      "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    },
+    "network": {
+      "interface": "wlp0s20f3",
+      "format": "{ifname}",
+      "format-wifi": "{essid} ({signalStrength}%) ",
+      "format-ethernet": "{ipaddr}/{cidr} ",
+      "format-disconnected": "", //An empty format will hide the module.
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+      "tooltip-format-ethernet": "{ifname} ",
+      "tooltip-format-disconnected": "Disconnected"
+    },
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{percent}% {icon}",
+      "format-icons": ["", ""]
+    }
+}
