@@ -1,5 +1,7 @@
 ln .bashrc ~/.bashrc
 
+ln .gitconfig ~/.gitconfig
+
 mkdir ~/.config/hypr
 ln hypr/* ~/.config/hypr/
 
@@ -13,7 +15,7 @@ ln starship.toml ~/.config/
 
 ln tmux.conf ~/.tmux/
 
-cp lk /usr/sbin/
+sudo cp lk /usr/sbin/
 sudo chmod +x /usr/sbin/lk
 
 sudo pacman -Syu
