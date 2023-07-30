@@ -1,0 +1,10 @@
+[Unit]
+Description=WPA initialize
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/wpa_supplicant -B -i wlp0s20f3 -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+[Install]
+WantedBy=multi-user.target
