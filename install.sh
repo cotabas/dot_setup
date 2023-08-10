@@ -28,7 +28,7 @@ sudo systemctl enable wpa_init
 sudo systemctl start wpa_init
 
 sudo pacman -Syu
-sudo pacman -S npm gcc unzip neovim starship tmux ripgrep exa bat
+sudo pacman -S npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay
 
 sudo cp /usr/sbin/nvim /usr/sbin/vi
 
@@ -39,9 +39,10 @@ git clone https://github.com/cotabas/nvim ~/.config/nvim/
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-sudo pacman -S noto-fonts bash-completion ttf-inconsolata-nerd ttf-inconsolata powertop
+sudo pacman -S noto-fonts bash-completion ttf-inconsolata-nerd ttf-inconsolata 
+yay -S ttf-ms-win11-auto
 
-sudo pacman -S alsa-utils pulseaudio pulseaudio-bluetooth pulseaudio-alsa
+sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware powertop
 
 sudo cp powertop.service /etc/systemd/system/
 sudo systemctl enable powertop
