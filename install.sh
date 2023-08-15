@@ -18,7 +18,7 @@ ln kitty/gruvbox.conf ~/.config/kitty/gruvbox.conf
 
 ln starship.toml ~/.config/starship.toml
 
-ln tmux.conf ~/.tmux/tmux.conf
+ln tmux.conf ~/.tmux.conf
 
 sudo cp lk /usr/sbin/
 sudo chmod +x /usr/sbin/lk

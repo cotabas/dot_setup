@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "margin-left": 2,
-    "margin-right": 2,
-    "margin-top": 2,
+    "margin-right": 0,
+    "margin-top": 0,
     "modules-left": ["bluetooth", "custom/right-arrow-tan"],
     "modules-center": ["custom/butt-arrow-gray", "clock#1", "custom/right-arrow-gray", "clock#2", "custom/butt-arrow-gray", "battery", "custom/right-arrow-gray", "custom/butt-arrow-orange", "custom/pwr", "custom/right-arrow-orange"],
     "modules-right": ["custom/left-arrow-gray", "network"],
