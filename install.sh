@@ -44,6 +44,9 @@ yay -S ttf-ms-win11-auto
 
 sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware powertop
 
+systemctl --user enable pipewire
+systemctl --user start pipewire
+
 sudo cp powertop.service /etc/systemd/system/
 sudo systemctl enable powertop
 sudo systemctl start powertop
