@@ -1,0 +1,11 @@
+
+killall node
+
+cd /home/cptmo/repos/pomodoro/
+
+npm run dev &
+
+sleep 1
+
+firefox localhost:5173
+

@@ -1,5 +1,7 @@
 ln .bashrc ~/.bashrc
 
+mkdir ~/repos/
+
 ln .gitconfig ~/.gitconfig
 
 mkdir ~/.config/hypr
@@ -50,5 +52,11 @@ systemctl --user start pipewire
 sudo cp powertop.service /etc/systemd/system/
 sudo systemctl enable powertop
 sudo systemctl start powertop
+
+sudo mkdir /opt/pomodoro/
+sudo chown cptmo /opt/pomodoro/
+sudo ln pomodoro/pomodoro.desktop /usr/share/applications/
+ln pomodoro/pomodoro /opt/pomodoro/
+git clone https://github.com/cotabas/pomodoro ~/repos/pomodoro/
 
 echo "prefix + I in tmux to load plugins"
