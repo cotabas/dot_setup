@@ -1,1 +1,1 @@
-exa --icons --git -la $1
+eza --icons --git -la $1
