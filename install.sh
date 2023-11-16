@@ -30,7 +30,7 @@ sudo systemctl enable wpa_init
 sudo systemctl start wpa_init
 
 sudo pacman -Syu
-sudo pacman -S npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
+sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
 sudo pacman -S waybar kitty hyprpaper grim slurp
 
 sudo cp /usr/sbin/nvim /usr/sbin/vi
