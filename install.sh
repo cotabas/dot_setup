@@ -22,6 +22,8 @@ ln starship.toml ~/.config/starship.toml
 
 ln tmux.conf ~/.tmux.conf
 
+sudo ln hosts /etc/hosts
+
 sudo cp lk /usr/sbin/
 sudo chmod +x /usr/sbin/lk
 
