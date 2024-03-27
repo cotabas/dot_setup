@@ -33,7 +33,7 @@ sudo systemctl start wpa_init
 
 sudo pacman -Syu
 sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
-sudo pacman -S waybar kitty hyprpaper grim slurp
+sudo pacman -S waybar kitty hyprpaper grim slurp firefox
 
 sudo cp /usr/sbin/nvim /usr/sbin/vi
 
@@ -55,6 +55,11 @@ sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware powertop
 
 systemctl --user enable pipewire
 systemctl --user start pipewire
+
+yay -S onedrive-abraunegg
+sudo cp onedrive.service /etc/systemd/system/
+sudo systemctl enable onedrive
+sudo systemctl start onedrive
 
 sudo cp powertop.service /etc/systemd/system/
 sudo systemctl enable powertop

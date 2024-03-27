@@ -1,0 +1,13 @@
+[Unit]
+Description=oneDrive sync
+
+[Service]
+User=cptmo
+WorkingDirectory=/home/cptmo
+ExecStart=onedrive --monitor --syncdir /home/cptmo --single-directory od
+# optional items below
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
