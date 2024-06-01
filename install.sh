@@ -35,10 +35,7 @@ sudo pacman -Syu
 sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
 sudo pacman -S waybar kitty hyprpaper grim slurp firefox
 
-sudo cp /usr/sbin/nvim /usr/sbin/vi
-
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+sudo ln /usr/sbin/nvim /usr/sbin/vi
 
 git clone https://github.com/cotabas/nvim ~/.config/nvim/
 cd ~/.config/nvim/
