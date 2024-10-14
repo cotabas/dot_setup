@@ -48,7 +48,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo pacman -S noto-fonts bash-completion ttf-inconsolata-nerd ttf-inconsolata 
 yay -S ttf-ms-win11-auto
 
-sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware powertop
+sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware tlp
+
+ln tlp.conf /etc/tlp.conf
+sudo systemctl enable tlp
+sudo systemctl start tlp
 
 systemctl --user enable pipewire
 systemctl --user start pipewire
@@ -58,9 +62,10 @@ sudo cp onedrive.service /etc/systemd/system/
 sudo systemctl enable onedrive
 sudo systemctl start onedrive
 
-sudo cp powertop.service /etc/systemd/system/
-sudo systemctl enable powertop
-sudo systemctl start powertop
+#sudo pacman -S powertop
+#sudo cp powertop.service /etc/systemd/system/
+#sudo systemctl enable powertop
+#sudo systemctl start powertop
 
 sudo mkdir /opt/pomodoro/
 sudo chown cptmo /opt/pomodoro/
