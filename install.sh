@@ -18,6 +18,9 @@ mkdir ~/.config/kitty/
 ln kitty/kitty.conf ~/.config/kitty/kitty.conf
 ln kitty/gruvbox.conf ~/.config/kitty/gruvbox.conf
 
+mkdir ~/.config/wofi
+ln wofi/style.css ~/.config/wofi/style.css
+
 ln starship.toml ~/.config/starship.toml
 
 ln tmux.conf ~/.tmux.conf
