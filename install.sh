@@ -8,6 +8,7 @@ mkdir ~/.config/hypr
 cp hypr/my_gruv_bg.png ~/.config/hypr/ 
 ln hypr/hyprland.conf ~/.config/hypr/hyprland.conf
 ln hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+ln hypr/hypridle.conf ~/.config/hypr/hypridle.conf
 
 mkdir ~/.config/waybar
 ln waybar/config ~/.config/waybar/config
@@ -51,7 +52,7 @@ systemctl --user start pipewire
 
 sudo pacman -Syu
 sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
-sudo pacman -S waybar kitty hyprpaper grim slurp firefox
+sudo pacman -S waybar kitty hyprpaper grim slurp hypridle firefox
 
 sudo ln /usr/sbin/nvim /usr/sbin/vi
 
