@@ -30,9 +30,24 @@ sudo ln hosts /etc/hosts
 sudo cp lk /usr/sbin/
 sudo chmod +x /usr/sbin/lk
 
+#9700 stuff start:
+#
+# wifi for 9700
+#
 sudo cp wpa_init.service /etc/systemd/system/
 sudo systemctl enable wpa_init
 sudo systemctl start wpa_init
+
+sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware tlp
+
+ln tlp.conf /etc/tlp.conf
+sudo systemctl enable tlp
+sudo systemctl start tlp
+
+systemctl --user enable pipewire
+systemctl --user start pipewire
+#
+#9700 end.
 
 sudo pacman -Syu
 sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
@@ -51,15 +66,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 sudo pacman -S noto-fonts bash-completion ttf-inconsolata-nerd ttf-inconsolata 
 yay -S ttf-ms-win11-auto
 
-sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware tlp
-
-ln tlp.conf /etc/tlp.conf
-sudo systemctl enable tlp
-sudo systemctl start tlp
-
-systemctl --user enable pipewire
-systemctl --user start pipewire
-
 yay -S onedrive-abraunegg
 sudo cp onedrive.service /etc/systemd/system/
 sudo systemctl enable onedrive
@@ -70,10 +76,10 @@ sudo systemctl start onedrive
 #sudo systemctl enable powertop
 #sudo systemctl start powertop
 
-sudo mkdir /opt/pomodoro/
-sudo chown cptmo /opt/pomodoro/
-sudo ln pomodoro/pomodoro.desktop /usr/share/applications/
-ln pomodoro/pomodoro /opt/pomodoro/
-git clone https://github.com/cotabas/pomodoro ~/repos/pomodoro/
+#sudo mkdir /opt/pomodoro/
+#sudo chown cptmo /opt/pomodoro/
+#sudo ln pomodoro/pomodoro.desktop /usr/share/applications/
+#ln pomodoro/pomodoro /opt/pomodoro/
+#git clone https://github.com/cotabas/pomodoro ~/repos/pomodoro/
 
 echo "prefix + I in tmux to load plugins"
