@@ -1,3 +1,12 @@
+
+
+
+#TODO
+#https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
+
+
+
+
 ln .bashrc ~/.bashrc
 
 mkdir ~/repos/
