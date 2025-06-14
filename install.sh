@@ -1,15 +1,16 @@
 
 
 
-#TODO
-#https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
 
 
 
 
 ln .bashrc ~/.bashrc
 
+
+
 mkdir ~/repos/
+
 
 ln .gitconfig ~/.gitconfig
 
@@ -44,6 +45,7 @@ sudo chmod +x /usr/sbin/lk
 #
 # wifi for 9700
 #
+sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 sudo cp wpa_init.service /etc/systemd/system/
 sudo systemctl enable wpa_init
 sudo systemctl start wpa_init
@@ -56,12 +58,21 @@ sudo systemctl start tlp
 
 systemctl --user enable pipewire
 systemctl --user start pipewire
+
+
+##Keep the GPU off
+#https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
+sudo touch /etc/modprobe.d/blacklist-nouveau.conf
+sudo echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
+sudo echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
+sudo cp 00-remove-nvidia.rules /etc/udev/rules.d/00-remove-nvidia.rules
+
 #
 #9700 end.
 
 sudo pacman -Syu
 sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
-sudo pacman -S waybar kitty hyprpaper grim slurp hypridle firefox
+sudo pacman -S hyprland waybar kitty hyprpaper wofi grim slurp hypridle firefox
 
 sudo ln /usr/sbin/nvim /usr/sbin/vi
 
@@ -93,3 +104,5 @@ sudo systemctl start onedrive
 #git clone https://github.com/cotabas/pomodoro ~/repos/pomodoro/
 
 echo "prefix + I in tmux to load plugins"
+echo "Get testfox?"
+

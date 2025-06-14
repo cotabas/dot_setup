@@ -6,4 +6,5 @@ run install.sh
 
 tmux then prefix + I
 
-nvim the packer config then :so then :PackerSync
+switched to lazy
+--nvim the packer config then :so then :PackerSync
