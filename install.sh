@@ -1,12 +1,6 @@
 
-
-
-
-
-
-
+rm ~/.bashrc
 ln .bashrc ~/.bashrc
-
 
 
 mkdir ~/repos/
@@ -14,6 +8,7 @@ mkdir ~/repos/
 
 ln .gitconfig ~/.gitconfig
 
+mkdir ~/.config
 mkdir ~/.config/hypr
 cp hypr/my_gruv_bg.png ~/.config/hypr/ 
 ln hypr/hyprland.conf ~/.config/hypr/hyprland.conf
@@ -36,29 +31,73 @@ ln starship.toml ~/.config/starship.toml
 
 ln tmux.conf ~/.tmux.conf
 
+sudo rm /etc/hosts
 sudo ln hosts /etc/hosts
 
 sudo cp lk /usr/sbin/
 sudo chmod +x /usr/sbin/lk
+##
+#  Install stuff
+##
+sudo pacman -S alsa-utils 
+sudo pacman -S acpi 
+sudo pacman -S pipewire-alsa 
+sudo pacman -S sof-firmware 
+sudo pacman -S tlp 
+sudo pacman -S man 
+sudo pacman -S npm 
+sudo pacman -S gcc 
+sudo pacman -S unzip 
+sudo pacman -S starship 
+sudo pacman -S tmux 
+sudo pacman -S ripgrep 
+sudo pacman -S exa 
+sudo pacman -S bat 
+sudo pacman -S base-devel 
+sudo pacman -S hyprland 
+sudo pacman -S waybar 
+sudo pacman -S kitty 
+sudo pacman -S hyprpaper 
+sudo pacman -S wofi 
+sudo pacman -S grim 
+sudo pacman -S slurp 
+sudo pacman -S hypridle 
+sudo pacman -S firefox 
+sudo pacman -S noto-fonts 
+sudo pacman -S bash-completion 
+sudo pacman -S ttf-inconsolata-nerd 
+sudo pacman -S ttf-inconsolata 
+sudo pacman -S blueman
+sudo pacman -S nvm 
+wait
+
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+cd ..
+yay -Y --gendb
+yay -Syu --devel
+yay -S ttf-ms-win10-auto
+
 
 #9700 stuff start:
 #
 # wifi for 9700
 #
-sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-sudo cp wpa_init.service /etc/systemd/system/
-sudo systemctl enable wpa_init
-sudo systemctl start wpa_init
+#sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+#sudo cp wpa_init.service /etc/systemd/system/
+#sudo systemctl enable wpa_init
+#sudo systemctl start wpa_init
 
-sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware tlp
-
-ln tlp.conf /etc/tlp.conf
+sudo ln tlp.conf /etc/tlp.conf
 sudo systemctl enable tlp
 sudo systemctl start tlp
 
 systemctl --user enable pipewire
 systemctl --user start pipewire
 
+
+## backlight
+yay -S acpilight
+sudo cp backlight.rules /etc/udev/rules.d/backlight.rules
 
 ##Keep the GPU off
 #https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
@@ -70,39 +109,30 @@ sudo cp 00-remove-nvidia.rules /etc/udev/rules.d/00-remove-nvidia.rules
 #
 #9700 end.
 
-sudo pacman -Syu
-sudo pacman -S man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay 
-sudo pacman -S hyprland waybar kitty hyprpaper wofi grim slurp hypridle firefox
 
+##
+#   vim stuff
+##
+sudo pacman -S neovim 
+sudo rm /usr/sbin/vi
 sudo ln /usr/sbin/nvim /usr/sbin/vi
 
-git clone https://github.com/cotabas/nvim ~/.config/nvim/
-cd ~/.config/nvim/
-git remote set-url origin git@github.com:cotabas/nvim.git
-cd -
-echo "This might not work, throwing it in untested.."
+git clone https://github.com/cotabas/lazy_nvim 
+mv lazy_nvim ~/.config/nvim
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-sudo pacman -S noto-fonts bash-completion ttf-inconsolata-nerd ttf-inconsolata 
-yay -S ttf-ms-win11-auto
 
 yay -S onedrive-abraunegg
 sudo cp onedrive.service /etc/systemd/system/
 sudo systemctl enable onedrive
 sudo systemctl start onedrive
 
+## Powertop isn't a as good as tlp?
 #sudo pacman -S powertop
 #sudo cp powertop.service /etc/systemd/system/
 #sudo systemctl enable powertop
 #sudo systemctl start powertop
 
-#sudo mkdir /opt/pomodoro/
-#sudo chown cptmo /opt/pomodoro/
-#sudo ln pomodoro/pomodoro.desktop /usr/share/applications/
-#ln pomodoro/pomodoro /opt/pomodoro/
-#git clone https://github.com/cotabas/pomodoro ~/repos/pomodoro/
-
 echo "prefix + I in tmux to load plugins"
 echo "Get testfox?"
-
+echo "do pacman -Syu"

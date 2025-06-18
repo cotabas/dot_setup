@@ -1,0 +1,1 @@
+sudo pacman -S alsa-utils acpi acpilight pipewire-alsa sof-firmware tlp man npm gcc unzip neovim starship tmux ripgrep exa bat base-devel yay hyprland waybar kitty hyprpaper wofi grim slurp hypridle firefox noto-fonts bash-completion ttf-inconsolata-nerd ttf-inconsolata 
