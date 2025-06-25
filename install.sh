@@ -1,4 +1,24 @@
 
+echo "before you run this script, have the following done:"
+echo "run pre_user.sh"
+echo "create a user and be logged in as that user"
+echo "they should be in the wheel group and the video group"
+echo "copy ssh keys to ~/.ssh/"
+echo "ping google.com"
+read -p "Continue? (y/n): " answer
+case $answer in
+    [Yy]* ) echo "Continuing...";;
+    [Nn]* ) exit 1;;
+    * ) echo "Please answer yes or no."; exit 1;;
+esac
+
+sudo pacman -S openssh
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+ssh-add ~/.ssh/id_ed25519_github
+
+git remote set-url origin git@github.com:cotabas/dot_setup/
+
 rm ~/.bashrc
 ln .bashrc ~/.bashrc
 
@@ -43,7 +63,6 @@ sudo pacman -S alsa-utils
 sudo pacman -S acpi 
 sudo pacman -S pipewire-alsa 
 sudo pacman -S sof-firmware 
-sudo pacman -S tlp 
 sudo pacman -S man 
 sudo pacman -S npm 
 sudo pacman -S gcc 
@@ -87,6 +106,10 @@ yay -S ttf-ms-win10-auto
 #sudo systemctl enable wpa_init
 #sudo systemctl start wpa_init
 
+pacman -S intel-media-driver
+
+sudo pacman -S tlp 
+sudo pacman -S tlp-rdw
 sudo ln tlp.conf /etc/tlp.conf
 sudo systemctl enable tlp
 sudo systemctl start tlp
@@ -134,5 +157,7 @@ sudo systemctl start onedrive
 #sudo systemctl start powertop
 
 echo "prefix + I in tmux to load plugins"
-echo "Get testfox?"
+echo "Get https://github.com/adriankarlen/textfox"
+echo "https://github.com/yokoffing/Betterfox"
+echo "basically copy the ffuser.js to the right profile"
 echo "do pacman -Syu"
