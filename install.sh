@@ -96,6 +96,9 @@ yay -Y --gendb
 yay -Syu --devel
 yay -S ttf-ms-win10-auto
 
+#hmm
+yay -S auto-cpufreq
+sudo systemctl enable --now auto-cpufreq
 
 #9700 stuff start:
 #

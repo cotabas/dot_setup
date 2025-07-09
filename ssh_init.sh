@@ -1,3 +1,8 @@
+# BROKE! needs cmake to build neovim
+# and it echos PATH in .bashrc incorrectly
+# and lk doesn't take a variable for the path
+# and starship doesn't work on fedora
+# and 
 cd
 # Install neovim
 git clone https://github.com/neovim/neovim.git
