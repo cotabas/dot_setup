@@ -1,6 +1,6 @@
 # BROKE! needs cmake to build neovim
 # and it echos PATH in .bashrc incorrectly
-# and lk doesn't take a variable for the path
+# and lk doesn't take a variable for the path FIXED?
 # and starship doesn't work on fedora
 # and 
 cd
@@ -28,7 +28,7 @@ cp eza ~/.local/bin/
 cd ..
 rm -rf eza/
 
-echo "eza --icons --git -l $1 $2" >> .local/bin/lk
+echo "eza --icons --git -l \$1 \$2" >> .local/bin/lk
 chmod +x .local/bin/lk
 
 
