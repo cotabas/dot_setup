@@ -10,6 +10,8 @@ cp wpa_init.service /etc/systemd/system/
 systemctl enable wpa_init
 systemctl enable dhcpcd
 
+##Keep the nvidia GPU off
+#https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
 touch /etc/modprobe.d/blacklist-nouveau.conf
 echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
 echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf

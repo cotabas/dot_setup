@@ -125,13 +125,6 @@ systemctl --user start pipewire
 yay -S acpilight
 sudo cp backlight.rules /etc/udev/rules.d/backlight.rules
 
-##Keep the GPU off
-#https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
-sudo touch /etc/modprobe.d/blacklist-nouveau.conf
-sudo echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
-sudo echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
-sudo cp 00-remove-nvidia.rules /etc/udev/rules.d/00-remove-nvidia.rules
-
 #
 #9700 end.
 
@@ -148,10 +141,11 @@ mv lazy_nvim ~/.config/nvim
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-yay -S onedrive-abraunegg
-sudo cp onedrive.service /etc/systemd/system/
-sudo systemctl enable onedrive
-sudo systemctl start onedrive
+# I haven't been using this and it requires upkeep so leaving it out for now
+#yay -S onedrive-abraunegg
+#sudo cp onedrive.service /etc/systemd/system/
+#sudo systemctl enable onedrive
+#sudo systemctl start onedrive
 
 ## Powertop isn't a as good as tlp?
 #sudo pacman -S powertop
