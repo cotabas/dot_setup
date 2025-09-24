@@ -81,7 +81,8 @@ sudo pacman -S wofi
 sudo pacman -S grim 
 sudo pacman -S slurp 
 sudo pacman -S hypridle 
-sudo pacman -S firefox 
+#sudo pacman -S firefox 
+sudo pacman -S chromium 
 sudo pacman -S noto-fonts 
 sudo pacman -S bash-completion 
 sudo pacman -S ttf-inconsolata-nerd 
