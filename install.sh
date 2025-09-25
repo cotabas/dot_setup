@@ -78,7 +78,11 @@ sudo pacman -S bat
 sudo pacman -S base-devel 
 sudo pacman -S hyprland 
 sudo pacman -S waybar 
-sudo pacman -S kitty 
+#sudo pacman -S kitty 
+sudo pacman -S alacritty
+sudo pacman -S hyprpicker
+sudo pacman -S wl-clipboard
+sudo pacman -S wl-clip-persist
 sudo pacman -S hyprpaper 
 sudo pacman -S wofi 
 sudo pacman -S grim 
@@ -94,27 +98,16 @@ sudo pacman -S blueman
 sudo pacman -S nvm 
 wait
 
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-cd ..
-yay -Y --gendb
-yay -Syu --devel
-yay -S ttf-ms-win10-auto
+#volume and brightness notification
+mkdir ~/.config/swayosd/
+ln swayosd/style.css ~/.config/swayosd/style.css
 
-#hmm
-yay -S auto-cpufreq
-sudo systemctl enable --now auto-cpufreq
+sudo pacman -S swayosd
+sudo pacman -S pipewire-pulse
+sudo systemctl enable --now swayosd-libinput-backend.service
 
 #9700 stuff start:
-#
-# wifi for 9700
-#
-#sudo cp wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-#sudo cp wpa_init.service /etc/systemd/system/
-#sudo systemctl enable wpa_init
-#sudo systemctl start wpa_init
-
 pacman -S intel-media-driver
-
 sudo pacman -S tlp 
 sudo pacman -S tlp-rdw
 sudo ln tlp.conf /etc/tlp.conf
@@ -123,11 +116,6 @@ sudo systemctl start tlp
 
 systemctl --user enable pipewire
 systemctl --user start pipewire
-
-
-## backlight
-yay -S acpilight
-sudo cp backlight.rules /etc/udev/rules.d/backlight.rules
 
 #
 #9700 end.
