@@ -3,6 +3,7 @@ echo "before you run this script, have the following done:"
 echo "run pre_user.sh"
 echo "create a user and be logged in as that user"
 echo "they should be in the wheel group and the video group"
+echo "add wheel to the sudoers file"
 echo "copy ssh keys to ~/.ssh/"
 echo "ping google.com"
 read -p "Continue? (y/n): " answer
@@ -14,7 +15,9 @@ esac
 
 sudo pacman -S openssh
 eval "$(ssh-agent -s)"
+chmod 600 ~/.ssh/id_ed25519
 ssh-add ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/id_ed25519_github
 ssh-add ~/.ssh/id_ed25519_github
 
 git remote set-url origin git@github.com:cotabas/dot_setup/
@@ -137,8 +140,8 @@ sudo pacman -S neovim
 sudo rm /usr/sbin/vi
 sudo ln /usr/sbin/nvim /usr/sbin/vi
 
-git clone https://github.com/cotabas/lazy_nvim 
-mv lazy_nvim ~/.config/nvim
+git clone git@github.com:cotabas/nvim_lazy 
+mv nvim_lazy ~/.config/nvim
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
