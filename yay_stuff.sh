@@ -14,3 +14,5 @@ sudo systemctl enable --now auto-cpufreq
 yay -S acpilight
 sudo cp backlight.rules /etc/udev/rules.d/backlight.rules
 
+## bluetooth
+yay -S bluetuith

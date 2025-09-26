@@ -94,9 +94,12 @@ sudo pacman -S noto-fonts
 sudo pacman -S bash-completion 
 sudo pacman -S ttf-inconsolata-nerd 
 sudo pacman -S ttf-inconsolata 
-sudo pacman -S blueman
 sudo pacman -S nvm 
 wait
+
+#bluetooth
+sudo pacman -S bluez bluez-utils
+sudo systemctl enable --now bluetooth
 
 #volume and brightness notification
 mkdir ~/.config/swayosd/
