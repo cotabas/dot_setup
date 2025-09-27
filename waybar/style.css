@@ -1,7 +1,10 @@
 * {
     font-family: Inconsolata Nerd Font Mono, Inconsolata;
-    font-size: 18px;
+    font-size: 16px;
     min-height: 0;
+    border: none;
+    margin: 0;
+    padding: 0;
 }
 span {
   color: #FCBF4A;
@@ -21,15 +24,20 @@ tooltip label {
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-bottom: 3px solid transparent;
+  background: #504B47;
+  font-family: Inconsolata;
+  color: #EBDCB3;
+  padding: 0 1px;
+  border-radius: 0;
+  border-bottom: 3px solid transparent;
 }
 
 #workspaces button.active {
-    background: #64727D;
-    border-bottom: 3px solid white;
+  background: #504B47;
+  font-family: Inconsolata;
+  border-radius: 0;
+  color: #EBDCB3;
+  border-bottom: 3px solid #FAC04B;
 }
 #custom-right-arrow-gray,
 #custom-left-arrow-gray {

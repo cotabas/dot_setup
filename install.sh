@@ -71,7 +71,7 @@ sudo pacman -S npm
 sudo pacman -S gcc 
 sudo pacman -S unzip 
 sudo pacman -S starship 
-sudo pacman -S tmux 
+#sudo pacman -S tmux 
 sudo pacman -S ripgrep 
 sudo pacman -S exa 
 sudo pacman -S bat 
@@ -90,12 +90,18 @@ sudo pacman -S slurp
 sudo pacman -S hypridle 
 #sudo pacman -S firefox 
 sudo pacman -S chromium 
-sudo pacman -S noto-fonts 
 sudo pacman -S bash-completion 
-sudo pacman -S ttf-inconsolata-nerd 
-sudo pacman -S ttf-inconsolata 
 sudo pacman -S nvm 
 wait
+
+#fonts
+sudo pacman -S ttf-inconsolata-nerd 
+sudo pacman -S noto-fonts 
+sudo pacman -S noto-fonts-emoji
+#sudo pacman -S ttf-inconsolata 
+sudo pacman -S fontconfig
+cp -r fontconfig/ ~/.config/
+fc-cache -f -v
 
 #bluetooth
 sudo pacman -S bluez bluez-utils
