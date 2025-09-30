@@ -39,7 +39,7 @@ ln hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
 ln hypr/hypridle.conf ~/.config/hypr/hypridle.conf
 
 mkdir ~/.config/waybar
-ln waybar/config ~/.config/waybar/config
+ln waybar/config.jsonc ~/.config/waybar/config.jsonc
 ln waybar/pwr.sh ~/.config/waybar/pwr.sh
 ln waybar/style.css ~/.config/waybar/style.css
 
@@ -106,6 +106,7 @@ fc-cache -f -v
 #bluetooth
 sudo pacman -S bluez bluez-utils
 sudo systemctl enable --now bluetooth
+#install bluetuith from AUR
 
 #volume and brightness notification
 mkdir ~/.config/swayosd/
@@ -147,12 +148,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 #sudo cp onedrive.service /etc/systemd/system/
 #sudo systemctl enable onedrive
 #sudo systemctl start onedrive
-
-## Powertop isn't a as good as tlp?
-#sudo pacman -S powertop
-#sudo cp powertop.service /etc/systemd/system/
-#sudo systemctl enable powertop
-#sudo systemctl start powertop
 
 echo "prefix + I in tmux to load plugins"
 echo "Get https://github.com/adriankarlen/textfox"
