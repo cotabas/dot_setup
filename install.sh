@@ -92,6 +92,8 @@ sudo pacman -S hypridle
 sudo pacman -S chromium 
 sudo pacman -S bash-completion 
 sudo pacman -S nvm 
+sudo pacman -S dunst
+sudo cp dunstrc /etc/dunst/dunstrc
 wait
 
 #fonts

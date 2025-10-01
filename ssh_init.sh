@@ -85,6 +85,7 @@ echo "format = '[\$symbol \$branch](\$style)'" >> starship.toml
 
 cd
 curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin
+#this doesn't work correctly..
 echo "eval "$(starship init bash)"" >> .bashrc
 
 # Setup bat
