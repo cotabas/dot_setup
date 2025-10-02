@@ -4,7 +4,7 @@
 
 window#osd {
   border-radius: 10px;
-  border: 1px solid @primary_container;
+  border: 0px solid @primary_container;
   background: alpha(@surface_container_low, 0.4);
 }
 
