@@ -43,9 +43,12 @@ ln waybar/config.jsonc ~/.config/waybar/config.jsonc
 ln waybar/pwr.sh ~/.config/waybar/pwr.sh
 ln waybar/style.css ~/.config/waybar/style.css
 
-mkdir ~/.config/kitty/
-ln kitty/kitty.conf ~/.config/kitty/kitty.conf
-ln kitty/gruvbox.conf ~/.config/kitty/gruvbox.conf
+#mkdir ~/.config/kitty/
+#ln kitty/kitty.conf ~/.config/kitty/kitty.conf
+#ln kitty/gruvbox.conf ~/.config/kitty/gruvbox.conf
+
+mkdir ~/.config/foot
+ln foot/foot.ini ~/.config/foot/foot.ini
 
 mkdir ~/.config/wofi
 ln wofi/style.css ~/.config/wofi/style.css
@@ -79,7 +82,8 @@ sudo pacman -S base-devel
 sudo pacman -S hyprland 
 sudo pacman -S waybar 
 #sudo pacman -S kitty 
-sudo pacman -S alacritty
+#sudo pacman -S alacritty
+sudo pacman -S foot
 sudo pacman -S hyprpicker
 sudo pacman -S wl-clipboard
 sudo pacman -S wl-clip-persist
