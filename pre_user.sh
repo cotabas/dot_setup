@@ -15,7 +15,7 @@ systemctl enable iwd
 
 ##Keep the nvidia GPU off
 #https://wiki.archlinux.org/title/Hybrid_graphics#Fully_power_down_discrete_GPU
-touch /etc/modprobe.d/blacklist-nouveau.conf
-echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
-echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
-cp 00-remove-nvidia.rules /etc/udev/rules.d/00-remove-nvidia.rules
+#touch /etc/modprobe.d/blacklist-nouveau.conf
+#echo "blacklist nouveau" >> /etc/modprobe.d/blacklist-nouveau.conf
+#echo "options nouveau modeset=0" >> /etc/modprobe.d/blacklist-nouveau.conf
+#cp 00-remove-nvidia.rules /etc/udev/rules.d/00-remove-nvidia.rules
