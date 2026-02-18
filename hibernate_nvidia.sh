@@ -27,15 +27,13 @@ EOF
 # 3. Udev Rules (Hardware Power Control)
 # This forces the GPU, Audio, and USB controllers on the card to suspend.
 sudo tee /etc/udev/rules.d/80-nvidia-pm.rules <<EOF
-# GPU Power Management
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", ATTR{power/control}="auto", ATTR{power/autosuspend_delay_ms}="1000"
-# Audio Controller Power Management
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto", ATTR{power/autosuspend_delay_ms}="1000"
-# USB/UCSI Controller Power Management
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto", ATTR{power/autosuspend_delay_ms}="1000"
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto", ATTR{power/autosuspend_delay_ms}="1000"
-# Force the PCIe Root Port for the dGPU to sleep
-ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="1901", ATTR{power/control}="auto"
+# Power down the GPU when not in use
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", ATTR{power/control}="auto"
+
+# Power down the Audio, USB, and UCSI controllers on the NVIDIA card
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x040300", ATTR{power/control}="auto"
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c0330", ATTR{power/control}="auto"
+ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x0c8000", ATTR{power/control}="auto"
 EOF
 
 # 4. The EGL 'Janitor' Service
@@ -73,7 +71,10 @@ WantedBy=multi-user.target
 EOF
 
 # 6. Suspend-then-Hibernate Timer
-# Sets the 15-minute sleep-to-hibernate handoff.
+# Ensure systemd allows all sleep verbs
+sudo sed -i 's/#AllowSuspend=yes/AllowSuspend=yes/' /etc/systemd/sleep.conf
+sudo sed -i 's/#AllowHibernation=yes/AllowHibernation=yes/' /etc/systemd/sleep.conf
+sudo sed -i 's/#AllowSuspendThenHibernate=yes/AllowSuspendThenHibernate=yes/' /etc/systemd/sleep.conf
 sudo sed -i 's/#HibernateDelaySec=.*/HibernateDelaySec=900/' /etc/systemd/sleep.conf
 
 sudo tee /etc/modprobe.d/i915.conf <<EOF
@@ -87,8 +88,8 @@ sudo systemctl enable disable-wakeup.service
 
 echo "----------------------------------------------------"
 echo "DONE! Manual Steps Required:"
-echo "1. Edit /etc/mkinitcpio.conf and add 'resume' to HOOKS (after udev)."
+echo "1. Edit /etc/mkinitcpio.conf and add 'resume' to HOOKS (after udev). MAYBE?"
 echo "2. Run: sudo mkinitcpio -P"
 echo "3. Update your Bootloader (Limine) cmdline with:"
-echo "   mem_sleep_default=deep resume=UUID=<SWAP_UUID> resume_offset=<OFFSET>"
+echo "   resume=UUID=<SWAP_UUID>"
 echo "----------------------------------------------------"

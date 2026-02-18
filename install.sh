@@ -32,11 +32,13 @@ mkdir ~/repos/
 ln .gitconfig ~/.gitconfig
 
 mkdir ~/.config
-mkdir ~/.config/hypr
-cp hypr/my_gruv_bg.png ~/.config/hypr/ 
-ln hypr/hyprland.conf ~/.config/hypr/hyprland.conf
-ln hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
-ln hypr/hypridle.conf ~/.config/hypr/hypridle.conf
+
+cp -r hypr/ ~/.config/
+#mkdir ~/.config/hypr
+#cp hypr/my_gruv_bg.png ~/.config/hypr/ 
+#ln hypr/hyprland.conf ~/.config/hypr/hyprland.conf
+#ln hypr/hyprpaper.conf ~/.config/hypr/hyprpaper.conf
+#ln hypr/hypridle.conf ~/.config/hypr/hypridle.conf
 
 mkdir ~/.config/waybar
 ln waybar/config.jsonc ~/.config/waybar/config.jsonc
@@ -92,6 +94,7 @@ sudo pacman -S wofi
 sudo pacman -S grim 
 sudo pacman -S slurp 
 sudo pacman -S hypridle 
+sudo pacman -S hyprlock
 #sudo pacman -S firefox 
 sudo pacman -S chromium 
 sudo pacman -S bash-completion 

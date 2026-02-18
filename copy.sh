@@ -16,3 +16,11 @@ cp ~/.config/swayosd/* ./swayosd/
 cp ~/.config/starship.toml ./starship.toml
 
 cp ~/.config/chromium-flags.conf ./chromium-flags.conf
+
+cp ~/.bashrc ./bashrc
+
+cp ~/.tmux.conf ./tmux.conf
+
+cp ~/.gitconfig ./gitconfig
+
+
