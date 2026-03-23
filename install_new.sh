@@ -54,7 +54,7 @@ cp waybar/pwr.sh ~/.config/waybar/
 XPS_PKGS=(intel-media-driver tlp tlp-rdw)
 HW_PKGS=(alsa-utils acpi pipewire-alsa pipewire-pulse sof-firmware bluez bluez-utils)
 CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip tmux neovim go btop gdb gef valgrind)
-WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd)
+WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd udisks2 udiskie)
 UTIL_PKGS=(ripgrep eza bat wl-clipboard wl-clip-persist starship dunst bash-completion)
 FONT_PKGS=(ttf-inconsolata-nerd noto-fonts noto-fonts-emoji fontconfig)
 
@@ -68,17 +68,36 @@ ssh-add ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519_github
 ssh-add ~/.ssh/id_ed25519_github
 
+# misc stuff
 git remote set-url origin git@github.com:cotabas/dot_setup/
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 sudo cp dunstrc /etc/dunst/dunstrc
 fc-cache -f -v
 
+# Create Polkit rule for passwordless mounting
+sudo mkdir -p /etc/polkit-1/rules.d/
+sudo tee /etc/polkit-1/rules.d/10-udisks2.rules <<EOF
+polkit.addRule(function(action, subject) {
+    if ((action.id == "org.freedesktop.udisks2.filesystem-mount" ||
+         action.id == "org.freedesktop.udisks2.filesystem-mount-system") &&
+        subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+    }
+});
+EOF
+
+
+
+# Enable services
 echo "Enabling services..."
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now swayosd-libinput-backend.service
 sudo systemctl enable --now tlp
+sudo systemctl enable --now udisks2
 systemctl enable --user --now pipewire
 
+# Neovim
 echo "Neovim setup..."
 # Check if the directory DOES NOT exist (-d is for directory, ! is 'not')
 if [ ! -d "$HOME/.config/nvim" ]; then
@@ -87,7 +106,6 @@ else
     echo "Neovim config already exists, skipping clone..."
 fi
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # if i return to firefox
 # echo "Get https://github.com/adriankarlen/textfox"
