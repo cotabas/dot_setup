@@ -87,6 +87,10 @@ polkit.addRule(function(action, subject) {
 });
 EOF
 
+# don't use the swap for swapping (:
+sudo tee /etc/sysctl.d/99-swappiness.conf <<EOF
+vm.swappiness=1
+EOF
 
 
 # Enable services
