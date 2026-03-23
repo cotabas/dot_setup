@@ -24,7 +24,7 @@
     "custom/pwr": {
       "interval": 1,
       "tooltip": false,
-      "on-click": "exec alacritty -e btop",
+      "on-click": "exec foot -e btop",
       "exec": "$HOME/.config/waybar/pwr.sh",
     },
     "clock#1": {
@@ -90,7 +90,7 @@
     },
     "bluetooth": {
       "format": "  ", // " {status}",
-      "on-click": "exec alacritty -e bluetuith",
+      "on-click": "exec foot -e bluetuith",
       "format-disabled": "  ", // an empty format will hide the module
       "format-connected": "  {device_alias}",
       "format-connected-battery": " {device_alias} {device_battery_percentage}%",
@@ -101,7 +101,7 @@
       "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "network": {
-      "on-click": "exec alacritty -e impala",
+      "on-click": "exec foot -e impala",
       "interface": "wlan0",
       "format": "{ifname}",
       "format-wifi": "{essid} ({signalStrength}%) ",

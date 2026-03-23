@@ -1,0 +1,5 @@
+splash = false
+preload = /home/cptmo/.config/hypr/my_gruv_bg.png
+wallpaper = eDP-1,/home/cptmo/.config/hypr/my_gruv_bg.png
+wallpaper = DP-5,/home/cptmo/.config/hypr/my_gruv_bg.png
+wallpaper = DP-1,/home/cptmo/.config/hypr/my_gruv_bg.png

@@ -1,26 +1,25 @@
-cp -r ~/.config/hypr/* ./hypr/
+cp -v -r ~/.config/hypr/* ./hypr/
 
-cp ~/.config/kitty/kitty.conf ./kitty/kitty.conf
-cp ~/.config/kitty/gruvbox.conf ./kitty/gruvbox.conf
+cp -v ~/.config/kitty/kitty.conf ./kitty/kitty.conf
+cp -v ~/.config/kitty/gruvbox.conf ./kitty/gruvbox.conf
+cp -v ~/.config/alacritty/alacritty.toml ./alacritty/alacritty.toml
 
-cp ~/.config/foot/foot.ini ./foot/foot.ini
+cp -v ~/.config/foot/foot.ini ./foot/foot.ini
 
-cp ~/.config/waybar/* ./waybar/
+cp -v ~/.config/waybar/* ./waybar/
 
-cp ~/.config/wofi/* ./wofi/
+cp -v ~/.config/wofi/* ./wofi/
 
-cp ~/.config/alacritty/alacritty.toml ./alacritty/alacritty.toml
+cp -v ~/.config/swayosd/* ./swayosd/
 
-cp ~/.config/swayosd/* ./swayosd/
+cp -v ~/.config/starship.toml ./starship.toml
 
-cp ~/.config/starship.toml ./starship.toml
+cp -v ~/.config/chromium-flags.conf ./chromium-flags.conf
 
-cp ~/.config/chromium-flags.conf ./chromium-flags.conf
+cp -v ~/.bashrc ./bashrc
 
-cp ~/.bashrc ./bashrc
+cp -v ~/.tmux.conf ./tmux.conf
 
-cp ~/.tmux.conf ./tmux.conf
-
-cp ~/.gitconfig ./gitconfig
+cp -v ~/.gitconfig ./gitconfig
 
 

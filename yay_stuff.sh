@@ -23,6 +23,8 @@ yay -S libfprint-goodix-53xc
 
 sudo systemctl enable --now fprintd.service
 sudo cp 50-fprintd.rules /etc/polkit-1/rules.d/
-sudo sed -i '1i auth      sufficient  pam_fprintd.so' /etc/pam.d/system-auth
+
+# finger print for sudo 
+#sudo sed -i '1i auth      sufficient  pam_fprintd.so' /etc/pam.d/system-auth
 
 fprintd-enroll
