@@ -1,7 +1,7 @@
 #!/bin/bash
 # Arch Linux Hybrid Power Setup for XPS 9700 / RTX 2060
 # Run this after installing 'nvidia' and 'nvidia-utils'
-sudo pacman -S --needed linux-headers nvidia-open-dkms nvidia-utils
+sudo pacman -S --needed linux-headers nvidia-open-dkms nvidia-utils nvidia-prime
 
 echo "Configuring NVIDIA for maximum power savings..."
 
