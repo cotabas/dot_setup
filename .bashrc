@@ -1,31 +1,50 @@
+# --- 1. PROMPT ---
+# Only run this if the shell is interactive
+if [[ $- == *i* ]]; then
+    eval "$(starship init bash)"
+fi
 
-__main() {
-  local major="${BASH_VERSINFO[0]}"
-  local minor="${BASH_VERSINFO[1]}"
+# --- 2. ALIASES & FUNCTIONS ---
+alias vi="nvim"
+alias vim="nvim"
 
-  if ((major > 4)) || { ((major == 4)) && ((minor >= 1)); }; then
-    source <(/usr/bin/starship init bash --print-full-init)
-  else
-    source /dev/stdin <<<"$(/usr/bin/starship init bash --print-full-init)"
-  fi
+lk() {
+    eza --icons --git -l --group-directories-first "$@"
 }
-__main
-unset -f __main
-#eval "$(~/.rbenv/bin/rbenv init - bash)"
-source /usr/share/nvm/init-nvm.sh
-#export PATH="$PATH:/opt/android-studio/bin"
 
-# Created by `pipx` on 2023-11-05 03:23:51
-export PATH="$PATH:/home/cptmo/.local/bin"
+# NVM Lazy Loader
+nvm() {
+    unset -f nvm node npm  # Delete these placeholders
+    source /usr/share/nvm/init-nvm.sh  # Load the real NVM
+    nvm "$@"  # Run the real nvm command with your arguments
+}
+
+node() {
+    unset -f nvm node npm
+    source /usr/share/nvm/init-nvm.sh
+    node "$@"
+}
+
+npm() {
+    unset -f nvm node npm
+    source /usr/share/nvm/init-nvm.sh
+    npm "$@"
+}
+
+# --- 3. EXPORTS & PATH ---
+add_to_path() {
+    if [[ ":$PATH:" != *":$1:"* ]] && [ -d "$1" ]; then
+        export PATH="$1:$PATH"
+    fi
+}
+
+export EDITOR='nvim'
+export VISUAL='nvim'
+export GTK_THEME=Gruvbox-Plus-Dark
+export QT_QPA_PLATFORM="wayland;xcb"
+export MOZ_ENABLE_WAYLAND=1
+export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 export GOPATH=$HOME/go
-export PATH="$PATH:$GOPATH/bin"
-
-export GTK_THEME=Gruvbox-Plus-Dark
-export QT_QPA_PLATFORM=wayland
-export QT_QPA_PLATFORMTHEME=kde
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
-
-export QT_STYLE_OVERRIDE=kvantum
-
+add_to_path "$HOME/.local/bin"
+add_to_path "$GOPATH/bin"

@@ -12,8 +12,8 @@ case $answer in
     * ) echo "Please answer yes or no."; exit 1;;
 esac
 
-# Define the repo path clearly
-DOTFILES_DIR=$(pwd)
+# This finds the directory where the script itself lives
+DOTFILES_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
 
 # Function to safely link
 link_file() {
@@ -38,13 +38,13 @@ link_file "foot/foot.ini" "$HOME/.config/foot/foot.ini"
 link_file "starship.toml" "$HOME/.config/starship.toml"
 link_file "fontconfig/fonts.conf" "$HOME/.config/fontconfig/fonts.conf"
 link_file "swayosd/style.css" "$HOME/.config/swayosd/style.css"
-link_file "tlp.conf" "/etc/tlp.conf"
 link_file "chromium-flags.conf" "$HOME/.config/chromium-flags.conf"
+link_file "btop/btop.conf" "$HOME/.config/btop/btop.conf"
 
 sudo rm /etc/hosts
-link_file "hosts" "/etc/hosts"
 
-sudo cp lk /usr/sbin/
+sudo ln -sf hosts /etc/hosts
+sudo ln -sf tlp.conf /etc/tlp.conf
 sudo chmod +x /usr/sbin/lk
 
 cp hypr/my_gruv_bg.png ~/.config/hypr/
@@ -53,9 +53,9 @@ cp waybar/pwr.sh ~/.config/waybar/
 # Package groups
 XPS_PKGS=(intel-media-driver tlp tlp-rdw)
 HW_PKGS=(alsa-utils acpi pipewire-alsa pipewire-pulse sof-firmware bluez bluez-utils)
-CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip tmux neovim go)
+CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip tmux neovim go btop gdb gef)
 WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd)
-UTIL_PKGS=(ripgrep exa bat wl-clipboard wl-clip-persist starship dunst bash-completion)
+UTIL_PKGS=(ripgrep eza bat wl-clipboard wl-clip-persist starship dunst bash-completion)
 FONT_PKGS=(ttf-inconsolata-nerd noto-fonts noto-fonts-emoji fontconfig)
 
 echo "Installing packages..."
@@ -76,15 +76,16 @@ fc-cache -f -v
 echo "Enabling services..."
 sudo systemctl enable --now bluetooth
 sudo systemctl enable --now swayosd-libinput-backend.service
-sudo systemctl enable --user --now pipewire
 sudo systemctl enable --now tlp
+systemctl enable --user --now pipewire
 
 echo "Neovim setup..."
-sudo rm /usr/sbin/vi
-link_file "/usr/sbin/nvim" "/usr/sbin/vi"
-
-git clone git@github.com:cotabas/nvim_lazy 
-mv nvim_lazy ~/.config/nvim
+# Check if the directory DOES NOT exist (-d is for directory, ! is 'not')
+if [ ! -d "$HOME/.config/nvim" ]; then
+    git clone git@github.com:cotabas/nvim_lazy "$HOME/.config/nvim"
+else
+    echo "Neovim config already exists, skipping clone..."
+fi
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -96,5 +97,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "prefix + I in tmux to load plugins"
 echo "do pacman -Syu"
 echo "run setup_nvidia.sh"
+echo "run yay_stuff.sh"
 
 
