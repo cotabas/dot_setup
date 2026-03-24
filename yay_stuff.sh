@@ -4,7 +4,7 @@ git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 cd ..
 yay -Y --gendb
 yay -Syu --devel
-yay -S ttf-ms-win10-auto
+#yay -S ttf-ms-win11-auto
 
 #hmm
 yay -S auto-cpufreq

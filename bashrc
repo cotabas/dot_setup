@@ -32,6 +32,6 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
 export QT_STYLE_OVERRIDE=kvantum
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 alias oterm='~/.local/share/python-apps/.venv/bin/oterm'

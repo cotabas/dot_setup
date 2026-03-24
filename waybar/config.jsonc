@@ -12,7 +12,7 @@
         "custom/right-arrow-gray",
     ],
     "modules-center": ["custom/butt-arrow-gray", "clock#1", "custom/right-arrow-gray", "clock#2", "custom/butt-arrow-gray", "battery", "custom/right-arrow-gray", "custom/butt-arrow-orange", "custom/pwr", "custom/right-arrow-orange"],
-    "modules-right": ["custom/left-arrow-gray", "network"],
+    "modules-right": ["custom/left-arrow-gray", "network", "tray"],
     "sway/window": {
         "max-length": 50
     },

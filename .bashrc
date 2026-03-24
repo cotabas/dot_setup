@@ -7,6 +7,7 @@ fi
 # --- 2. ALIASES & FUNCTIONS ---
 alias vi="nvim"
 alias vim="nvim"
+alias H="start-hyprland"
 
 lk() {
     eza --icons --git -l --group-directories-first "$@"

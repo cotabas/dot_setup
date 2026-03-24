@@ -24,7 +24,7 @@ link_file() {
 }
 
 echo "Linking config files..."
-link_file "bashrc" "$HOME/.bashrc"
+link_file ".bashrc" "$HOME/.bashrc"
 link_file "tmux.conf" "$HOME/.tmux.conf"
 link_file ".gitconfig" "$HOME/.gitconfig"
 link_file "hypr/hyprland.conf" "$HOME/.config/hypr/hyprland.conf"
