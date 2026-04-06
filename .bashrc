@@ -6,7 +6,6 @@ fi
 
 # --- 2. ALIASES & FUNCTIONS ---
 alias vi="nvim"
-alias vim="nvim"
 alias H="start-hyprland"
 
 lk() {

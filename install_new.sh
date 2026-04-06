@@ -42,10 +42,8 @@ link_file "chromium-flags.conf" "$HOME/.config/chromium-flags.conf"
 link_file "btop/btop.conf" "$HOME/.config/btop/btop.conf"
 
 sudo rm /etc/hosts
-
-sudo ln -sf hosts /etc/hosts
-sudo ln -sf tlp.conf /etc/tlp.conf
-sudo chmod +x /usr/sbin/lk
+sudo ln -sf $DOTFILES_DIR/hosts /etc/hosts
+sudo ln -sf $DOTFILES_DIR/tlp.conf /etc/tlp.conf
 
 cp hypr/my_gruv_bg.png ~/.config/hypr/
 cp waybar/pwr.sh ~/.config/waybar/
@@ -53,7 +51,7 @@ cp waybar/pwr.sh ~/.config/waybar/
 # Package groups
 XPS_PKGS=(intel-media-driver tlp tlp-rdw)
 HW_PKGS=(alsa-utils acpi pipewire-alsa pipewire-pulse sof-firmware bluez bluez-utils)
-CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip tmux neovim go btop gdb gef valgrind)
+CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip zip tmux neovim go btop gdb gef valgrind)
 WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd udisks2 udiskie)
 UTIL_PKGS=(ripgrep eza bat wl-clipboard wl-clip-persist starship dunst bash-completion)
 FONT_PKGS=(ttf-inconsolata-nerd noto-fonts noto-fonts-emoji fontconfig)
@@ -117,8 +115,7 @@ fi
 # echo "basically copy the ffuser.js to the right profile"
 
 echo "prefix + I in tmux to load plugins"
-echo "do pacman -Syu"
-echo "run setup_nvidia.sh"
-echo "run yay_stuff.sh"
+echo "still need nvidia stuff and yay stuff"
+echo "also might need to add resume to the hooks in mkinitcpio"
 
 
