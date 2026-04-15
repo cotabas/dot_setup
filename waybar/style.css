@@ -69,7 +69,7 @@ tooltip label {
   padding-left: 8px;
 }
 
-#mode, #clock, #bluetooth {
+#mode, #clock, #bluetooth, #tray, #pulseaudio {
   font-family: Inconsolata;
     padding: 0 10px;
 }
