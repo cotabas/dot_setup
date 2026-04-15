@@ -52,7 +52,7 @@ cp waybar/pwr.sh ~/.config/waybar/
 XPS_PKGS=(intel-media-driver tlp tlp-rdw)
 HW_PKGS=(alsa-utils acpi pipewire-alsa pipewire-pulse sof-firmware bluez bluez-utils pulsemixer)
 CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip zip tmux neovim go btop gdb gef valgrind)
-WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd udisks2 udiskie)
+WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd udisks2 udiskie firejail)
 UTIL_PKGS=(ripgrep eza bat wl-clipboard wl-clip-persist starship dunst bash-completion)
 FONT_PKGS=(ttf-inconsolata-nerd noto-fonts noto-fonts-emoji fontconfig)
 
@@ -108,6 +108,9 @@ else
     echo "Neovim config already exists, skipping clone..."
 fi
 
+# keep discord off the dGPU
+sudo pacman -S discord
+sudo cp discord.desktop /usr/share/applications/
 
 # if i return to firefox
 # echo "Get https://github.com/adriankarlen/textfox"
