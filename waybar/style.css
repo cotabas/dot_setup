@@ -62,6 +62,10 @@ tooltip label {
   background: #504B47;
   color: RGBA(29, 32, 33, 1);
 }
+#custom-butt-arrow-left {
+  background: #504B47;
+  color: RGBA(29, 32, 33, 1);
+}
 #custom-pwr {
   font-family: Inconsolata;
   background: #FCBF4A;

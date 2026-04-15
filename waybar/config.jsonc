@@ -11,8 +11,8 @@
         "persistent-workspaces",
         "custom/right-arrow-gray",
     ],
-    "modules-center": ["custom/butt-arrow-gray", "clock#1", "custom/right-arrow-gray", "clock#2", "pulseaudio", "custom/butt-arrow-gray", "battery", "custom/right-arrow-gray", "custom/butt-arrow-orange", "custom/pwr", "custom/right-arrow-orange"],
-    "modules-right": ["tray", "custom/left-arrow-gray", "network"],
+    "modules-center": ["custom/butt-arrow-gray", "clock#1", "custom/right-arrow-gray", "clock#2", "custom/butt-arrow-gray", "battery", "custom/right-arrow-gray", "custom/butt-arrow-orange", "custom/pwr", "custom/right-arrow-orange"],
+    "modules-right": ["tray", "custom/left-arrow-gray", "network", "custom/butt-arrow-left", "pulseaudio"],
     "sway/window": {
         "max-length": 50
     },
@@ -82,6 +82,10 @@
     },
     "custom/right-arrow-tan": {
       "format": "",
+      "tooltip": false
+    },
+    "custom/butt-arrow-left": {
+      "format": "",
       "tooltip": false
     },
     "custom/butt-arrow-orange": {
