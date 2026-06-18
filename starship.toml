@@ -1,4 +1,5 @@
 format = """
+$hostname\
 $time\
 [](#504B47 bg:#1D2021)\
 $directory\
@@ -37,9 +38,11 @@ format = '[ $time ]($style)'
 disabled = true
 format = '\[[⏱ $duration]($style)\]'
 
-
 [hostname]
-disabled = true
+disabled = false
+ssh_only = true
+style = "bold fg:#1D2021 bg:#CF2B2A"
+format = "[ 🖥️ $hostname ]($style)[](#CF2B2A bg:#504B47)"
 
 [nodejs]
 format = '[$symbol($version)]($style)'
