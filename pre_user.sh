@@ -8,9 +8,13 @@
 #cp wpa_init.service /etc/systemd/system/
 #systemctl enable wpa_init
 pacman -S iwd
-pacman -S dhcpcd
 pacman -S impala
-systemctl enable dhcpcd
+
+sudo tee /etc/iwd/main.conf <<EOF
+[General]
+EnableNetworkConfiguration=true
+EOF
+
 systemctl enable iwd
 
 ##Keep the nvidia GPU off

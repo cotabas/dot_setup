@@ -27,9 +27,9 @@ fi
 # 3. Check EGL Vendor Priority
 if [ -f /usr/share/glvnd/egl_vendor.d/10_nvidia.json ]; then
     echo -e "EGL Priority: ${RED}BAD (NVIDIA is at 10_)${NC}"
+    sudo mv /usr/share/glvnd/egl_vendor.d/10_nvidia.json /usr/share/glvnd/egl_vendor.d/90_nvidia.json
 else
     echo -e "EGL Priority: ${GREEN}GOOD (NVIDIA is Deprioritized)${NC}"
-    #sudo mv /usr/share/glvnd/egl_vendor.d/10_nvidia.json /usr/share/glvnd/egl_vendor.d/90_nvidia.json
 fi
 
 # 4. Check Kernel Flags
