@@ -51,7 +51,7 @@ cp waybar/pwr.sh ~/.config/waybar/
 # Package groups
 XPS_PKGS=(intel-media-driver tlp tlp-rdw)
 HW_PKGS=(alsa-utils acpi pipewire-alsa pipewire-pulse sof-firmware bluez bluez-utils pulsemixer)
-CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip zip tmux neovim go btop gdb gef valgrind)
+CORE_PKGS=(openssh git base-devel man nvm npm gcc unzip zip tmux neovim go btop gdb gef valgrind, wl-clipboard)
 WM_PKGS=(hyprland waybar foot wofi hyprpaper hypridle hyprlock grim slurp hyprpicker chromium swayosd udisks2 udiskie firejail)
 UTIL_PKGS=(ripgrep eza bat wl-clipboard wl-clip-persist starship dunst bash-completion)
 FONT_PKGS=(ttf-inconsolata-nerd noto-fonts noto-fonts-emoji fontconfig)
